@@ -1,5 +1,3 @@
-# links/models.py
-
 from django.db import models
 from .utils import generate_short_code
 
