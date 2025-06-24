@@ -1,7 +1,7 @@
-AWS Lambda
+## AWS Lambda
 AWS Lambda is a serverless computing service that lets users define the logic (code), and AWS automatically handles the underlying infrastructure, scaling, and availability. It's called serverless because you don’t manage any servers — AWS runs your code on demand.
 
-API Gateway
+## API Gateway
 Amazon API Gateway acts as a bridge between client requests and AWS Lambda functions. Whenever a user sends an HTTP request, the API Gateway routes it to the appropriate Lambda function based on the configured route.
 
 Questions:

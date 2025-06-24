@@ -1,4 +1,4 @@
-# Updating Lambda Function for Dynamic DynamoDB Lookup (Final Integration)
+## Updating Lambda Function for Dynamic DynamoDB Lookup (Final Integration)
 
 Fetch the original URL from **DynamoDB** dynamically using the `short_code` provided in the **API Gateway path** and redirect to it.
 
