@@ -2,7 +2,7 @@
 from django.db import models
 
 class Link(models.Model):
-    original_url = models.URLField()
+    original_url = models.URLField(unique=True)
     short_code = models.CharField(max_length=8, unique=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

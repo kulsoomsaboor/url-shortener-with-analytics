@@ -2,12 +2,7 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from .models import Link
 from .serializers import LinkSerializer
-from .utils import generate_short_code
-
-import boto3
-
-dynamodb = boto3.resource('dynamodb', region_name='eu-north-1')  
-table = dynamodb.Table('ShortLinks')  
+from .utils import generate_short_code, sync_to_dynamodb
 
 
 class LinkCreateView(generics.CreateAPIView):
@@ -32,14 +27,7 @@ class LinkCreateView(generics.CreateAPIView):
         new_link = Link.objects.create(original_url=original_url, short_code=short_code)
         serializer = self.get_serializer(new_link)
 
-        # Save to DynamoDB
-        try:
-            table.put_item(Item={
-                'short_code': short_code,
-                'original_url': original_url
-            })
-        except Exception as e:
-            print("Error syncing to DynamoDB:", e)
+        sync_to_dynamodb(short_code, original_url)
 
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
