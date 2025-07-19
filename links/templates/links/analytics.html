@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Analytics Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Link Analytics</h2>
+
+  <!-- Scrollable section ONLY for main summary table -->
+  <div style="overflow-x: auto;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Short Code</th>
+          <th>Original Url</th>
+          <th>Click Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in items_short_links %}
+        <tr>
+          <td>{{ row.short_code }}</td>
+          <td>{{ row.original_url }}</td>
+          <td>{{ row.click_count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Grouped log tables for each short code -->
+  {% for short_code, logs in logs_by_code.items %}
+    <h4 class="mt-4">Logs for Short Code: {{ short_code }}</h4>
+    <table class="table table-bordered mb-4">
+      <thead>
+        <tr>
+          <th>IP</th>
+          <th>User Agent</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for log in logs %}
+        <tr>
+          <td>{{ log.ip }}</td>
+          <td>{{ log.user_agent }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
+</div>
+</body>
+</html>
+
+
