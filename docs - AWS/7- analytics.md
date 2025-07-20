@@ -58,6 +58,7 @@ user_agent: browser/device info
         "dynamodb:PutItem"
       ],
       "Resource": ""arn:aws:dynamodb:<region>:<account-id>:table/ClickLogs"
+
     }
   ]
 }
@@ -180,3 +181,8 @@ REPORT RequestId: d4cfdd9b-1567-4a82-a2e3-fed7d76d1bee	Duration: 82.15 ms	Billed
 ```
 
 This confirms both the redirect works, and analytics were logged successfully.
+
+
+### View Analytics:
+ 
+After redirection, you can check the ClickLogs table in your DynamoDB tables having each shortcode's logs history beside it. (only the links that were clicked after incorporating the analytics logic will show the logs history.)
