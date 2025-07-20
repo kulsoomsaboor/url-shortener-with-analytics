@@ -38,6 +38,8 @@
         <tr>
           <th>IP</th>
           <th>User Agent</th>
+          <th>Country</th>
+            <th>Region</th>
         </tr>
       </thead>
       <tbody>
@@ -45,6 +47,8 @@
         <tr>
           <td>{{ log.ip }}</td>
           <td>{{ log.user_agent }}</td>
+           <td>{{ log.country }}</td>
+            <td>{{ log.region }}</td>
         </tr>
         {% endfor %}
       </tbody>
