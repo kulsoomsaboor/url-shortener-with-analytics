@@ -1,6 +1,6 @@
 ### Integrating Geo-IP Tracking into Lambda Function for Click Logging
 
-### ### Goal: Track the user's geographical location (country and region) for each click event using a Geo-IP API.
+### Goal: Track the user's geographical location (country and region) for each click event using a Geo-IP API.
  
 
 ### ClickLogs Table Now Stores:
